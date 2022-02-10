@@ -21,7 +21,7 @@ public class AlgoGenController extends JPanel implements  Runnable{
         super(new BorderLayout());
 
         this.gen = gen;
-        render = new AlgoGenRender(gen);
+        render = new AlgoGenRender();
 
         JPanel controllerPanel = new JPanel();
         controllerPanel.setLayout(new BoxLayout( controllerPanel, BoxLayout.Y_AXIS));

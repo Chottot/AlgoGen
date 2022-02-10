@@ -1,13 +1,10 @@
 package com.chottot.algogen.polygon;
 
-import com.chottot.algogen.PolygonColor;
-import com.chottot.algogen.core.AlgoGenMemberMutator;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PolygonMemberMutator implements AlgoGenMemberMutator<PolygonMember> {
+public class PolygonMemberMutator implements PolygonMutator {
 
     private final Random rand;
     private int mutationStrength;

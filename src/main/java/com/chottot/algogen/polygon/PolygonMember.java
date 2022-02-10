@@ -1,7 +1,6 @@
 
 package com.chottot.algogen.polygon;
 
-import com.chottot.algogen.PolygonColor;
 import com.chottot.algogen.core.AlgoGenMember;
 
 import java.awt.*;

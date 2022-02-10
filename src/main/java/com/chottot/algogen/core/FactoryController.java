@@ -7,4 +7,8 @@ public abstract class FactoryController <T> extends JPanel implements Factory<T>
     public FactoryController(LayoutManager layout) {
         super(layout);
     }
+
+    public FactoryController() {
+        super();
+    }
 }

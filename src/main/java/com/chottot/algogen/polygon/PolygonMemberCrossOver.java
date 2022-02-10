@@ -1,12 +1,9 @@
 package com.chottot.algogen.polygon;
 
-import com.chottot.algogen.PolygonColor;
-import com.chottot.algogen.core.AlgoGenMemberCrossOver;
-
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PolygonMemberCrossOver implements AlgoGenMemberCrossOver<PolygonMember> {
+public class PolygonMemberCrossOver implements PolygonCrossOver {
 
     private final Random rand;
 

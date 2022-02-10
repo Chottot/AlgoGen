@@ -4,25 +4,53 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class FactorySelector <T> extends JPanel implements ItemListener {
 
+    private final JComboBox<FactoryController<T>> comboBox;
     private FactoryController<T> selectedController;
+    private List<FactoryController<T>> controllers;
 
     public FactorySelector(List< FactoryController<T>> items) {
         super(new FlowLayout());
-        JComboBox<FactoryController<T>> comboBox = new JComboBox<>();
+        Random rand = new Random();
+        comboBox = new JComboBox<>();
 
-        for ( FactoryController<T> item : items) {
-            comboBox.addItem(item);
-        }
-        selectedController = items.get(0);
+        setControllers(items);
 
         comboBox.addItemListener(this);
-
+        this.setBackground( new Color( rand.nextInt(256*3)));
         this.add(comboBox);
         this.add( selectedController);
+    }
+
+    public FactorySelector() {
+        this(new ArrayList<>());
+    }
+
+    public void setControllers(List<FactoryController<T>> list){
+        comboBox.removeAll();
+        controllers = list;
+
+        for ( FactoryController<T> item : list) {
+            comboBox.addItem(item);
+        }
+
+        if(selectedController != null){
+            remove(selectedController);
+            selectedController = null;
+        }
+
+        if(!list.isEmpty()){
+            selectedController = list.get(0);
+        }
+    }
+
+    public List<FactoryController<T>> getControllers() {
+        return controllers;
     }
 
     public T getSelectedCreation() {

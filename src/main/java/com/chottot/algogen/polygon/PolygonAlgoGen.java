@@ -1,6 +1,6 @@
 package com.chottot.algogen.polygon;
 
-import com.chottot.algogen.core.SimpleAlgoGen;
+import com.chottot.algogen.core.*;
 
 import guru.nidi.graphviz.attribute.Image;
 import guru.nidi.graphviz.attribute.Label;
@@ -9,6 +9,7 @@ import guru.nidi.graphviz.engine.Format;
 import guru.nidi.graphviz.engine.Graphviz;
 import guru.nidi.graphviz.engine.GraphvizCmdLineEngine;
 import guru.nidi.graphviz.model.*;
+import guru.nidi.graphviz.model.Factory;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,6 +25,13 @@ public class PolygonAlgoGen extends SimpleAlgoGen<PolygonMember> {
                 popNumber, mutationRate, populationRateKeptThroughGeneration);
     }
 
+    public PolygonAlgoGen(PolygonFactory memberInitializer,
+                          PolygonCrossOver memberCrossOver,
+                          PolygonMutator memberMutator,
+                          PolygonEvaluator memberEvaluator,
+                          int popNumber, double mutationRate, double populationRateKeptThroughGeneration) {
+        super(memberInitializer, memberCrossOver, memberMutator, memberEvaluator, popNumber, mutationRate, populationRateKeptThroughGeneration);
+    }
 
     public void setImage(BufferedImage img){
         reset();

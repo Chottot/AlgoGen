@@ -1,13 +1,10 @@
 package com.chottot.algogen.polygon;
 
-import com.chottot.algogen.PolygonColor;
-import com.chottot.algogen.core.AlgoGenMemberFactory;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PolyGonMemberFactory implements AlgoGenMemberFactory<PolygonMember> {
+public class PolyGonMemberFactory implements PolygonFactory {
 
     private final Random rand;
     private final int width;

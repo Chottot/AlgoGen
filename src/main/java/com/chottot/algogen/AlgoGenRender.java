@@ -8,14 +8,17 @@ import java.awt.*;
 
 public class AlgoGenRender extends JPanel {
 
-    private final SimpleAlgoGen<?> gen;
+    private SimpleAlgoGen<?> gen;
     private final AlgoGenMemberRender bestMemberRender;
 
-    public AlgoGenRender(SimpleAlgoGen<?> gen) {
+    public AlgoGenRender() {
         super(new BorderLayout());
-        this.gen = gen;
         bestMemberRender = new AlgoGenMemberRender();
         this.add(bestMemberRender, BorderLayout.CENTER);
+    }
+
+    public void setGen(SimpleAlgoGen<?> gen) {
+        this.gen = gen;
     }
 
     public void updatePop(){

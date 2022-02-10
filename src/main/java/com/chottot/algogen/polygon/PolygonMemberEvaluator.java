@@ -1,15 +1,16 @@
 package com.chottot.algogen.polygon;
 
-import com.chottot.algogen.Main;
-import com.chottot.algogen.core.AlgoGenMemberEvaluator;
-
 import java.awt.image.BufferedImage;
 
-public class PolygonMemberEvaluator implements AlgoGenMemberEvaluator<PolygonMember> {
+public class PolygonMemberEvaluator implements PolygonEvaluator {
 
-    private final BufferedImage target;
+    private BufferedImage target;
 
     public PolygonMemberEvaluator(BufferedImage target) {
+        this.target = target;
+    }
+
+    public void setTarget(BufferedImage target) {
         this.target = target;
     }
 

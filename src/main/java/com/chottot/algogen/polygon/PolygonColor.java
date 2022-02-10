@@ -1,7 +1,6 @@
-package com.chottot.algogen;
+package com.chottot.algogen.polygon;
 
 import java.awt.*;
-import java.util.Arrays;
 import java.util.Random;
 
 public class PolygonColor extends Polygon {

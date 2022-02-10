@@ -1,12 +1,13 @@
-package com.chottot.algogen.polygon;
+package com.chottot.algogen.polygon.controller;
 
-import com.chottot.algogen.core.AlgoGenMemberMutator;
 import com.chottot.algogen.core.FactoryController;
+import com.chottot.algogen.polygon.PolygonMemberMutator;
+import com.chottot.algogen.polygon.PolygonMutator;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class PolygonMutatorController extends FactoryController<AlgoGenMemberMutator<PolygonMember>> {
+public class PolygonMutatorController extends FactoryController<PolygonMutator> {
 
     private final JSlider mutationStrengthSlider;
     private final JLabel label;
@@ -23,7 +24,7 @@ public class PolygonMutatorController extends FactoryController<AlgoGenMemberMut
     }
 
     @Override
-    public AlgoGenMemberMutator<PolygonMember> create() {
+    public PolygonMutator create() {
         return new PolygonMemberMutator(mutationStrengthSlider.getValue());
     }
 
