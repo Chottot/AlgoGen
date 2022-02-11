@@ -34,8 +34,8 @@ public class PolyGonMemberFactory implements PolygonFactory {
             int[] y = new int[pointByPolygon];
 
             for (int j = 0; j < pointByPolygon; j++) {
-                x[j] = rand.nextInt(width*3) - width;
-                y[j] = rand.nextInt(height*3) - height;
+                x[j] = rand.nextInt(width)*3 - width;
+                y[j] = rand.nextInt(height)*3 - height;
             }
 
             Color color = new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256),  rand.nextInt(256));

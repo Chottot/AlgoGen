@@ -22,7 +22,7 @@ public class FactorySelector <T> extends JPanel implements ItemListener {
         setControllers(items);
 
         comboBox.addItemListener(this);
-        this.setBackground( new Color( rand.nextInt(256*3)));
+        //this.setBackground( new Color( rand.nextInt(256*3)));
         this.add(comboBox);
         this.add( selectedController);
     }

@@ -101,6 +101,9 @@ public abstract class SimpleAlgoGen<T extends AlgoGenMember> implements AlgoGen<
         while (newPopulation.size() < newPopNumber) {
             T p1 = selectMember(oldPopulation);
             T p2 = selectMember(oldPopulation);
+            while (p2 == p1){
+                p2 = selectMember(oldPopulation);
+            }
 
             newPopulation.add(memberCrossOver.crossOver(p1, p2));
         }
@@ -178,12 +181,12 @@ public abstract class SimpleAlgoGen<T extends AlgoGenMember> implements AlgoGen<
             member.pickRate = (member.fitness - fitnessMin.get()) / fitnessSpace;
             //System.out.println("  " + member.pickRate);
 
-            //System.out.println("eval: "+ member+" fit: " + member.fitness + " rate: " + member.pickRate );
+           // System.out.println("eval: "+ member+" fit: " + member.fitness + " rate: " + member.pickRate );
         }
 
         long finish = System.currentTimeMillis();
         long timeElapsed = finish - start;
-        System.out.println("finished: " + timeElapsed);
+        System.out.println("finished in " + timeElapsed +" ms");
     }
 
     public T getBestMember(){
@@ -217,6 +220,10 @@ public abstract class SimpleAlgoGen<T extends AlgoGenMember> implements AlgoGen<
         map.merge(member, 1, Integer::sum);
 
         return member;
+    }
+
+    public ArrayList<T> getMembers() {
+        return members;
     }
 
     public BufferedImage generateTree(){

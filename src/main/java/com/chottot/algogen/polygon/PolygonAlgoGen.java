@@ -20,7 +20,7 @@ public class PolygonAlgoGen extends SimpleAlgoGen<PolygonMember> {
                           double mutationRate, int mutationStrength, double populationRateKeptThroughGeneration) {
         super(  new PolyGonMemberFactory(target.getWidth(), target.getHeight(), polygonNumber, pointByPolygon),
                 new PolygonMemberCrossOver(),
-                new PolygonMemberMutator(mutationStrength),
+                new PolygonMemberMutator(mutationStrength, target.getWidth(), target.getHeight()),
                 new PolygonMemberEvaluator(target),
                 popNumber, mutationRate, populationRateKeptThroughGeneration);
     }

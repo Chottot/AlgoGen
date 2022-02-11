@@ -1,30 +1,38 @@
 package com.chottot.algogen.polygon;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class PolygonMemberMutator implements PolygonMutator {
 
     private final Random rand;
-    private int mutationStrength;
+    private final int mutationStrength;
 
-    public PolygonMemberMutator(Random rand, int mutationStrength) {
+    private final int width;
+    private final int height;
+
+    public PolygonMemberMutator(Random rand, int mutationStrength, int width, int height) {
         this.rand = rand;
         this.mutationStrength = mutationStrength;
+        this.width = width;
+        this.height = height;
     }
 
-    public PolygonMemberMutator(int mutationStrength) {
-        this(new Random(), mutationStrength);
+    public PolygonMemberMutator(int mutationStrength, int width, int height) {
+        this(new Random(), mutationStrength, width, height);
     }
 
     private int mutateValue(int value){
         return value + rand.nextInt(mutationStrength*2) - mutationStrength;
     }
+
     private int mutateValue(int value, int min, int max){
-        value = mutateValue(value);
-        return Math.min( Math.max(value, min), max);
+        return rand.nextInt(min, max);
     }
+
+
     @Override
     public void mutate(PolygonMember member) {
         ArrayList<PolygonColor> list = member.getList();
@@ -35,8 +43,8 @@ public class PolygonMemberMutator implements PolygonMutator {
         switch (poly){
             case 0,1,2,3 -> {
                 poly = rand.nextInt(pc.npoints);
-                pc.xpoints[poly] = mutateValue(pc.xpoints[poly]);
-                pc.ypoints[poly] = mutateValue(pc.ypoints[poly]);
+                pc.xpoints[poly] = mutateValue(pc.xpoints[poly], -width, width*2);
+                pc.ypoints[poly] = mutateValue(pc.ypoints[poly], -height, height*2);
             }
             case 4 -> {
                 Color c = pc.getColor();

@@ -12,6 +12,9 @@ public class PolygonMutatorController extends FactoryController<PolygonMutator> 
     private final JSlider mutationStrengthSlider;
     private final JLabel label;
 
+    private int width;
+    private int height;
+
     public PolygonMutatorController() {
         super( new FlowLayout());
         label = new JLabel("50");
@@ -23,9 +26,14 @@ public class PolygonMutatorController extends FactoryController<PolygonMutator> 
         mutationStrengthSlider.addChangeListener(e -> label.setText( ""+mutationStrengthSlider.getValue()));
     }
 
+    void setTargetSize(int width, int height){
+        this.width = width;
+        this.height = height;
+    }
+
     @Override
     public PolygonMutator create() {
-        return new PolygonMemberMutator(mutationStrengthSlider.getValue());
+        return new PolygonMemberMutator(mutationStrengthSlider.getValue(), width, height);
     }
 
     @Override

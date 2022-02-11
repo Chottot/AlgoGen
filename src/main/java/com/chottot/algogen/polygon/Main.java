@@ -39,7 +39,9 @@ public class Main {
                 int targetGreen = (targetColor & 0x0000ff00) >> 8;
                 int targetBlue = targetColor & 0x000000ff;
 
+                //fitness += (Math.abs(targetRed - memberRed) + Math.abs(targetGreen - memberGreen) + Math.abs(targetBlue - memberBlue) + Math.abs(targetAlpha - memberAlpha));
                 fitness += (Math.abs(targetRed - memberRed) + Math.abs(targetGreen - memberGreen) + Math.abs(targetBlue - memberBlue) + Math.abs(targetAlpha - memberAlpha))/4.0;
+                //fitness +=  Math.max( Math.max( Math.abs(targetRed - memberRed) , Math.abs(targetGreen - memberGreen) ) ,  Math.max( Math.abs(targetBlue - memberBlue) , Math.abs(targetAlpha - memberAlpha)) ) ;
             }
         }
         double maxDiff = 255L * im1.getWidth() * im1.getHeight();

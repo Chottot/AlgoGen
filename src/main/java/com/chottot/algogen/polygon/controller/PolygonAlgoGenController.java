@@ -135,6 +135,10 @@ public class PolygonAlgoGenController extends JPanel implements Runnable {
         for( FactoryController<PolygonEvaluator> f : evaluatorFactorySelector.getControllers()){
             ((PolygonEvaluatorController)f).setTarget(image);
         }
+
+        for( FactoryController<PolygonMutator> f : mutatorFactorySelector.getControllers()){
+            ((PolygonMutatorController)f).setTargetSize(image.getWidth(), image.getHeight());
+        }
         createGenButton.setEnabled(true);
     }
 
@@ -144,7 +148,7 @@ public class PolygonAlgoGenController extends JPanel implements Runnable {
                                     crossOverFactorySelector.getSelectedCreation(),
                                     mutatorFactorySelector.getSelectedCreation(),
                                     evaluatorFactorySelector.getSelectedCreation(),
-                                    100,0.3,0.5);
+                                    200,0.7,0.7);
         render.setGen(gen);
         nextGen();
         toggleButton.setEnabled(true);
